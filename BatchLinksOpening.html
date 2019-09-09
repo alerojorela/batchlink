@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Alejandro Rojo">
+    <title>Batch Links Opening</title>
+
+    <script src="./BatchLinksOpening.js"></script>
+    <script src="../../jsexternal/jquery-3.3.1.min.js"></script>
+
+    <link href="../../style/articulo.css" rel="stylesheet" type="text/css">
+    <!--
+    <link type="text/css" rel="stylesheet" href="style.css">
+    -->
+
+    <style type="text/css">
+        button {
+            width: 100%;
+            text-align: left;
+            color: black;
+            /* Green */
+        }
+
+        textarea {
+            height: 200px;
+            width: 100%;
+        }
+
+        body {
+            text-align: left;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="grid-container">
+        <div>
+            <h1>Links</h1>
+            <p>This app makes easy to open several search pages simultaneously, even in different search providers.
+                <em>You may be asked by your browser to procceed</em>
+            </p>
+            <label for="linkstextbox">Flag links with (<em>\</em> plus specific spacing char) for parameter placement.
+                e.g.</label>
+            <textarea id="linkstextbox" style="overflow:hidden">http://en.wikipedia.org/wiki/\_</textarea>
+
+        </div>
+
+        <div>
+
+            <input type="button" value="Run" onclick="Run();" />
+
+            <select id="mySelect">
+                <optgroup label="Consulta">
+                    <option data-url="http://en.wikipedia.org/wiki/\_">Wikipedia EN </option>
+                    <option data-url="http://es.wikipedia.org/wiki/\_">Wikipedia ES </option>
+
+                    <option data-url="http://dle.rae.es/?w=\+">RAE</option>
+                    <option data-url="http://dirae.es/palabras/?q=\+">Dirae</option>
+                </optgroup>
+                <optgroup label="Multimedia">
+                    <option data-url="https://duckduckgo.com/?q=\+&iax=images&ia=images">Duckduckgo Images</option>
+                    <option data-url="https://www.startpage.com/do/search?cat=pics&query=\+&ff=&nj=0">Starpage images
+                        (Google proxy) </option>
+                    <option data-url="http://www.google.com/search?tbm=isch&q=\+">Google Images</option>
+                    <option data-url="https://www.google.com/search?tbm=isch&tbs=itp:lineart&q=\+">Google Images
+                        (LineArt)</option>
+                    <option
+                        data-url="http://www.youtube.com/results?search_type=search_playlists&search_query=\+&uni=3">
+                        Youtube</option>
+                </optgroup>
+                <optgroup label="Críticas">
+                    <option data-url="http://www.imdb.com/find?q=\+&s=all">IMDB</option>
+                    <option data-url="http://www.rottentomatoes.com/search/?search=\+">RT</option>
+                    <option
+                        data-url="http://www.gamespot.com/search/?indices[0]=game&indices[1]=hub&indices[2]=video&indices[3]=platform&q=\+">
+                        Gamespot</option>
+                </optgroup>
+                <optgroup label="Compras">
+                    <option data-url="http://www.amazon.es/s/keywords=\+&ie=UTF8">Amazon es</option>
+                </optgroup>
+            </select>
+            <input type="button" value="Add" onclick="AddSelected();" />
+            <input type="button" value="Put" onclick="PutSelected();" />
+            <input type="button" value="Clear" onclick="Clear();" />
+            <!--
+                <button type="button" onclick="AddSelected();">add</button>
+                <button type="button" onclick="PutSelected();">put</button>
+-->
+        </div>
+
+        <div id="column">
+            <h1>Optional query parameters</h1>
+            <label for="parameterstextbox">Spaces will be replaced by specific spacing char (usually + or _)</label>
+            <textarea id="parameterstextbox" style="overflow:hidden">
+Exoplanet
+Nuclear binding energy
+                </textarea>
+        </div>
+    </div>
+
+</body>
+
+</html>
